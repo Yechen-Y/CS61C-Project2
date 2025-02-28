@@ -10,10 +10,13 @@
 # =================================================================
 abs:
     # Prologue
-
+    addi sp, sp, -4
+    sw ra, 0(sp)
     # return 0
-    mv a0, zero
-
+    bge a0, zero, done  
+    sub a0, zero, a0
+done:
+    lw ra, 0(sp)
     # Epilogue
-
+    addi sp, sp, 4
     ret
