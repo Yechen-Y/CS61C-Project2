@@ -133,15 +133,23 @@ class TestMatmul(TestCase):
         array0 = t.array(m0)
         array1 = t.array(m1)
         array_out = t.array([0] * len(result))
-
+        t.input_array("a0", array0)
+        t.input_scalar("a1", m0_rows)
+        t.input_scalar("a2", m0_cols)
+        t.input_array("a3", array1)
+        t.input_scalar("a4", m1_rows)
+        t.input_scalar("a5", m1_cols)
+        t.input_array("a6", array_out)
+        t.call("matmul")
+        t.check_array_pointer("a6", result)
         # load address of input matrices and set their dimensions
-        raise NotImplementedError("TODO")
+        # raise NotImplementedError("TODO")
         # TODO
         # load address of output array
         # TODO
 
         # call the matmul function
-        t.call("matmul")
+        
 
         # check the content of the output array
         # TODO
