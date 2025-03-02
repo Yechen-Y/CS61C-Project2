@@ -141,7 +141,7 @@ class TestMatmul(TestCase):
         t.input_scalar("a5", m1_cols)
         t.input_array("a6", array_out)
         t.call("matmul")
-        t.check_array_pointer("a6", result)
+        t.check_array(array_out, result)
         # load address of input matrices and set their dimensions
         # raise NotImplementedError("TODO")
         # TODO
